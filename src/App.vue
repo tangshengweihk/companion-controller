@@ -50,8 +50,8 @@
           :class="{ 'last-executed': button.id === lastExecutedButtonId }"
           :data-button-id="button.id"
           :style="{
-            '--el-button-text-color': button.textColor || '#ffffff',
-            color: button.textColor || '#ffffff'
+            '--el-button-text-color': button?.textColor || '#ffffff',
+            color: button?.textColor || '#ffffff'
           }"
           @click="executeButtonApis(button)"
           size="large"
@@ -363,7 +363,7 @@ const handleGlobalKeydown = (e) => {
   const matchedButton = buttons.value.find(btn => btn.hotkey === hotkey)
   if (matchedButton) {
     console.log('找到匹配的按钮:', matchedButton.name) // 添加调试日志
-    e.preventDefault() // ���默认行为
+    e.preventDefault() // 默认行为
     executeButtonApis(matchedButton)
   }
 }
@@ -668,6 +668,6 @@ const handleGlobalKeydown = (e) => {
 
 /* 添加一个全局样式来覆盖 Element Plus 的默认样式 */
 :deep(.el-button) {
-  --el-button-text-color: v-bind('button.textColor || "#ffffff"');
+  --el-button-text-color: v-bind('button?.textColor || "#ffffff"');
 }
 </style>
