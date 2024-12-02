@@ -1,0 +1,327 @@
+:root {
+  --el-color-primary: #00c6ff !important;
+  --el-border-radius-base: 6px !important;
+  --el-border-radius-small: 4px !important;
+  --el-border-radius-round: 20px !important;
+  --tech-glow: 0 0 20px rgba(0, 198, 255, 0.2);
+  --tech-border: 1px solid rgba(0, 198, 255, 0.2);
+}
+
+html[data-theme="dark"] body,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden !important;
+  background: linear-gradient(135deg, #0f1215 0%, #1a1f25 100%) !important;
+  color: #e0e0e0;
+}
+
+body {
+  min-width: 320px;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* 添加背景网格效果 */
+#app::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(rgba(0, 198, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 198, 255, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+
+/* 对话框样式增强 */
+.el-dialog,
+div.el-dialog {
+  background: rgba(15, 18, 21, 0.95) !important;
+  border: var(--tech-border) !important;
+  box-shadow: var(--tech-glow) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.el-dialog__header {
+  border-bottom: var(--tech-border);
+  padding-bottom: 20px !important;
+}
+
+.el-dialog__footer {
+  border-top: var(--tech-border);
+  padding-top: 20px !important;
+}
+
+.el-dialog__title {
+  color: #00c6ff !important;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* 输入框样式增强 */
+.el-input__wrapper.el-input__wrapper {
+  background: rgba(0, 198, 255, 0.05) !important;
+  border: var(--tech-border) !important;
+  box-shadow: none !important;
+}
+
+.el-input__wrapper.el-input__wrapper:hover {
+  background: rgba(0, 198, 255, 0.08) !important;
+}
+
+.el-input__wrapper.el-input__wrapper.is-focus {
+  box-shadow: var(--tech-glow) !important;
+  border-color: rgba(0, 198, 255, 0.4) !important;
+}
+
+/* 按钮样式增强 */
+.el-button.el-button {
+  background: rgba(0, 198, 255, 0.1) !important;
+  border: var(--tech-border) !important;
+  color: #e0e0e0 !important;
+}
+
+.el-button.el-button:hover {
+  background: rgba(0, 198, 255, 0.2) !important;
+  box-shadow: var(--tech-glow) !important;
+  transform: translateY(-1px);
+}
+
+/* 消息提示样式 */
+.el-message {
+  background: rgba(15, 18, 21, 0.95) !important;
+  border: var(--tech-border) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--tech-glow) !important;
+}
+
+/* 表单项样式 */
+.el-form-item__label {
+  color: #00c6ff !important;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* 对话框相关样式 */
+.el-overlay {
+  overflow: hidden !important;
+}
+
+.no-scroll {
+  overflow: hidden !important;
+}
+
+.el-dialog__body {
+  overflow-y: auto !important;
+  max-height: calc(90vh - 150px);  /* 限制最大高度 */
+}
+
+.el-dialog__wrapper {
+  overflow: hidden !important;
+}
+
+/* 禁用所有滚动锁定相关样式 */
+.el-popup-parent--hidden {
+  overflow: hidden !important;
+  padding-right: 0 !important;
+}
+
+/* 输入框样式 */
+.el-input__inner {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #e0e0e0 !important;
+}
+
+.el-input__inner:focus {
+  border-color: var(--el-color-primary) !important;
+  box-shadow: 0 0 10px rgba(0, 198, 255, 0.2) !important;
+}
+
+/* 按钮悬浮效果 */
+.el-button:not(.is-text):hover {
+  box-shadow: 0 0 15px rgba(0, 198, 255, 0.3) !important;
+  transform: translateY(-1px);
+}
+
+/* 标题样式增强 */
+.page-title.page-title {
+  color: #00c6ff !important;
+  font-size: 32px !important;
+  font-weight: 600 !important;
+  text-shadow: 0 0 10px rgba(0, 198, 255, 0.3);
+  letter-spacing: 2px;
+  position: relative;
+  padding: 10px 30px;
+  margin-bottom: 40px;
+  text-align: center;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(0, 198, 255, 0.1) 25%,
+    rgba(0, 198, 255, 0.1) 75%,
+    transparent 100%
+  );
+  animation: glow 3s ease-in-out infinite;
+}
+
+.page-title::before,
+.page-title::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    rgba(0, 198, 255, 0.8),
+    transparent
+  );
+}
+
+.page-title::before {
+  left: -20px;
+  transform: translateY(-50%);
+}
+
+.page-title::after {
+  right: -20px;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* 添加呼吸灯效果 */
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px rgba(0, 198, 255, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(0, 198, 255, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(0, 198, 255, 0.3);
+  }
+}
+
+/* 对话框按钮样式统一 */
+.el-dialog__footer .el-button.el-button {
+  background: rgba(0, 198, 255, 0.1) !important;
+  border: var(--tech-border) !important;
+  color: #e0e0e0 !important;
+  transition: all 0.3s ease;
+}
+
+.el-dialog__footer .el-button.el-button:hover {
+  background: rgba(0, 198, 255, 0.2) !important;
+  box-shadow: var(--tech-glow) !important;
+  transform: translateY(-1px);
+}
+
+/* 主要按钮样式（确定按钮） */
+.el-dialog__footer .el-button--primary.el-button {
+  background: rgba(0, 198, 255, 0.2) !important;
+  border: 1px solid rgba(0, 198, 255, 0.4) !important;
+}
+
+.el-dialog__footer .el-button--primary.el-button:hover {
+  background: rgba(0, 198, 255, 0.3) !important;
+  box-shadow: 0 0 20px rgba(0, 198, 255, 0.3) !important;
+}
+
+/* MessageBox 确认框样式 */
+.el-message-box {
+  background: rgba(15, 18, 21, 0.95) !important;
+  border: var(--tech-border) !important;
+  box-shadow: var(--tech-glow) !important;
+  backdrop-filter: blur(10px) !important;
+  width: auto !important;
+  min-width: 420px !important;
+  max-width: 90vw !important;
+  margin: 0 auto !important;
+}
+
+/* 移除所有可能的边框 */
+.el-message-box,
+.el-message-box__header,
+.el-message-box__content,
+.el-message-box__container,
+.el-message-box__btns {
+  border: none !important;
+  border-bottom: none !important;
+  border-top: none !important;
+}
+
+/* 重新定义按钮区域的分隔线 */
+.el-message-box__btns {
+  position: relative;
+  margin-top: 20px !important;
+  padding-top: 20px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  padding: 20px !important;
+}
+
+.el-message-box__btns::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -20px;
+  right: -20px;
+  height: 1px;
+  background: var(--tech-border);
+}
+
+.el-message-box__title {
+  color: #00c6ff !important;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.el-message-box__content {
+  color: #e0e0e0 !important;
+  padding-bottom: 0 !important;
+  padding: 20px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.el-message-box__status {
+  color: #e6a23c !important;  /* 警告图标颜色 */
+}
+
+/* MessageBox 按钮样式 */
+.el-message-box__btns .el-button {
+  background: rgba(0, 198, 255, 0.1) !important;
+  border: var(--tech-border) !important;
+  color: #e0e0e0 !important;
+}
+
+.el-message-box__btns .el-button:hover {
+  background: rgba(0, 198, 255, 0.2) !important;
+  box-shadow: var(--tech-glow) !important;
+  transform: translateY(-1px);
+}
+
+.el-message-box__btns .el-button--primary {
+  background: rgba(0, 198, 255, 0.2) !important;
+  border: 1px solid rgba(0, 198, 255, 0.4) !important;
+}
+
+.el-message-box__btns .el-button--primary:hover {
+  background: rgba(0, 198, 255, 0.3) !important;
+  box-shadow: 0 0 20px rgba(0, 198, 255, 0.3) !important;
+}
